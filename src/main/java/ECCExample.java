@@ -2,11 +2,15 @@ import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
 
 import ECCUtils.JDK8EncryptECC;
+import cn.hutool.crypto.SecureUtil;
+import cn.hutool.crypto.asymmetric.Sign;
+import cn.hutool.crypto.asymmetric.SignAlgorithm;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
 import ECCUtils.BCEncryptECC;
@@ -20,8 +24,21 @@ public class ECCExample {
 //        jdkJDK8SignECC2();
 //        JDKEncryptECC();
 
+
+
     }
 
+    public static void hutoolEcc(){
+        KeyPair keyPair = SecureUtil.generateKeyPair(SignAlgorithm.SHA256withECDSA.getValue(),256);
+        System.out.println(keyPair.getPrivate().toString());
+        System.out.println(keyPair.getPublic().toString());
+        String data = "123";
+        Sign sign = SecureUtil.sign(SignAlgorithm.SHA256withECDSA);
+        byte[] signed = sign.sign(data.getBytes());
+        System.out.println(Arrays.toString(signed));
+        boolean verify = sign.verify(data.getBytes(),signed);
+        System.out.println(verify);
+    }
 
     public static void jdkJDK8SignECC2() throws Exception{
         String msg = "helloworld";

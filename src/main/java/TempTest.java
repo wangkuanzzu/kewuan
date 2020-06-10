@@ -1,4 +1,5 @@
 import io.nats.client.*;
+import org.joda.time.DateTime;
 import utils.DateUtil;
 
 import java.io.BufferedReader;
@@ -17,44 +18,48 @@ public class TempTest {
 
     public static void main(String[] args) {
 
-        Set<Long> set1 = new HashSet<Long>(){
-            {
-                add(1L);
-                add(2L);
-                add(3L);
-                add(4L);
-            }
-        };
-        Set<Long> set2 = new HashSet<Long>(){
-            {
-                add(3L);
-                add(4L);
-                add(5L);
-                add(6L);
-            }
-        };
-
-        Set<Long> result = new HashSet<>();
-
-        result.clear();
-        result.addAll(set1);
-        result.retainAll(set2);
-        System.out.println("交集：" + result);
-
-        result.clear();
-        result.addAll(set1);
-        result.removeAll(set2);
-        System.out.println("差集：" + result);
-
-        result.clear();
-        result.addAll(set2);
-        result.removeAll(set1);
-        System.out.println("差集：" + result);
-
-        result.clear();
-        result.addAll(set1);
-        result.addAll(set2);
-        System.out.println("并集：" + result);
+        System.out.println(DateTime.now());
+        System.out.println(DateTime.now().hourOfDay());
+        System.out.println(DateTime.now().hourOfDay().roundFloorCopy());
+        System.out.println(DateTime.now().hourOfDay().roundFloorCopy().toDate());
+//        Set<Long> set1 = new HashSet<Long>(){
+//            {
+//                add(1L);
+//                add(2L);
+//                add(3L);
+//                add(4L);
+//            }
+//        };
+//        Set<Long> set2 = new HashSet<Long>(){
+//            {
+//                add(3L);
+//                add(4L);
+//                add(5L);
+//                add(6L);
+//            }
+//        };
+//
+//        Set<Long> result = new HashSet<>();
+//
+//        result.clear();
+//        result.addAll(set1);
+//        result.retainAll(set2);
+//        System.out.println("交集：" + result);
+//
+//        result.clear();
+//        result.addAll(set1);
+//        result.removeAll(set2);
+//        System.out.println("差集：" + result);
+//
+//        result.clear();
+//        result.addAll(set2);
+//        result.removeAll(set1);
+//        System.out.println("差集：" + result);
+//
+//        result.clear();
+//        result.addAll(set1);
+//        result.addAll(set2);
+//        System.out.println("并集：" + result);
 
 
 
