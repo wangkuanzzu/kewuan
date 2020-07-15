@@ -18,10 +18,14 @@ public class TempTest {
 
     public static void main(String[] args) {
 
-        System.out.println(DateTime.now());
-        System.out.println(DateTime.now().hourOfDay());
-        System.out.println(DateTime.now().hourOfDay().roundFloorCopy());
-        System.out.println(DateTime.now().hourOfDay().roundFloorCopy().toDate());
+        String s = "wink";
+        String s2 = String.format("%s/",s);
+        System.out.println(s2);
+
+//        System.out.println(DateTime.now());
+//        System.out.println(DateTime.now().hourOfDay());
+//        System.out.println(DateTime.now().hourOfDay().roundFloorCopy());
+//        System.out.println(DateTime.now().hourOfDay().roundFloorCopy().toDate());
 //        Set<Long> set1 = new HashSet<Long>(){
 //            {
 //                add(1L);

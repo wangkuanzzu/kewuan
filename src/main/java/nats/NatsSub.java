@@ -7,12 +7,11 @@ import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 
 public class NatsSub {
-    public static final String subject = "ad";
-    public static final String servers = "nats://127.0.0.1:4222";
+    public static final String subject = "ad-click";
+//    public static final String queue = "click";
+    public static final String servers = "nats://172.17.15.52:4222";
 
     public static void main(String[] args) throws Exception {
-//        subscribe1();
-//
 //        subscribe2Queue1();
 //        subscribe2Queue2();
 
