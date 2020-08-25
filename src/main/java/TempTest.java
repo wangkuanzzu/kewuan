@@ -18,9 +18,13 @@ public class TempTest {
 
     public static void main(String[] args) {
 
-        String s = "wink";
-        String s2 = String.format("%s/",s);
-        System.out.println(s2);
+
+        String app = "1,2,3,4";
+        System.out.println(app.split(",").length);
+
+//        String s = "wink";
+//        String s2 = String.format("%s/",s);
+//        System.out.println(s2);
 
 //        System.out.println(DateTime.now());
 //        System.out.println(DateTime.now().hourOfDay());
