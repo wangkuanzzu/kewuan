@@ -61,7 +61,7 @@ public class GuiBing {
         while(j<=high){
             temp[k++] = ints[j++];
         }
-        System.out.println(Arrays.toString(temp));
+
         for(int x=0; x<temp.length; x++){
             ints[low+x] = temp[x];
         }
