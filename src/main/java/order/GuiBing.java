@@ -29,6 +29,7 @@ public class GuiBing {
      */
     public static String guibing(int[] ints, int low, int high){
 
+        //以中值进行数组的拆分 直到数组中仅存在一个元素即low==high
         int mid = (low+high)/2;
         if(low < high){
             guibing(ints,low,mid);
@@ -47,6 +48,7 @@ public class GuiBing {
         int i = low;
         int j = mid+1;
 
+        //合并数组 两个数组中第一个元素 哪个小哪个就先放大临时数组中
         while(i<=mid && j<=high){
             if(ints[i]<ints[j]){
                 temp[k++] = ints[i++];
@@ -55,6 +57,7 @@ public class GuiBing {
             }
         }
 
+        //不确定最大的数在哪一个数组中 所以不管是哪个数组多出的数据 继续追加到临时数组中
         while(i<=mid){
             temp[k++] = ints[i++];
         }
@@ -62,6 +65,7 @@ public class GuiBing {
             temp[k++] = ints[j++];
         }
 
+        //临时数组 转移到 元数组中
         for(int x=0; x<temp.length; x++){
             ints[low+x] = temp[x];
         }
