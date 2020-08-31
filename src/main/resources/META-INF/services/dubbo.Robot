@@ -1,0 +1,2 @@
+dubbo.OptimusPrime
+dubbo.Bumblebee
