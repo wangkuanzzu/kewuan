@@ -1,4 +1,4 @@
-package httpHutool;
+package hutool;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.StreamProgress;
