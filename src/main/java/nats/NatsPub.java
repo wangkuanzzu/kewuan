@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.concurrent.*;
 
 public class NatsPub {
-    public static final String subject = "ad-open";
+    public static final String subject = "test-kuan";
     public static final String servers = "nats://127.0.0.1:4222";
 
     public static void main(String[] args) throws Exception {
