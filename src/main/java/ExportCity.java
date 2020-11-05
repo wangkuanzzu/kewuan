@@ -6,7 +6,8 @@ public class ExportCity {
 
     // MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/test";
+    static final String DB_URL = "jdbc:mysql://172.17.15.161:3306/adpost";
+
 
     // MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
     //static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -14,8 +15,8 @@ public class ExportCity {
 
 
     // 数据库的用户名与密码，需要根据自己的设置
-    static final String USER = "root";
-    static final String PASS = "root";
+    static final String USER = "appuser";
+    static final String PASS = "qianbao123456";
 
     public static void main(String[] args) {
         Connection conn = null;
@@ -32,7 +33,7 @@ public class ExportCity {
             System.out.println(" 实例化Statement对象...");
             stmt = conn.createStatement();
             String sql;
-            sql = "select id,UPPER(pingyin),sname,region_code from city_info where region_level = 2 and sname != ''";
+            sql = "select id,upper(pingyin),sname,code from city_info where region_level = 2 and sname != ''";
             ResultSet rs = stmt.executeQuery(sql);
 
             // 展开结果集数据库
