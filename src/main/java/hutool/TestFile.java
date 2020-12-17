@@ -18,7 +18,7 @@ public class TestFile {
         }
 
     //一个字节一个字节的复制，耗时22697毫秒
-    public static  void  fun() throws IOException {
+    public static void fun() throws IOException {
         FileInputStream fis = new FileInputStream("源文件");
         FileOutputStream fos = new FileOutputStream("新文件");
         int by = 0;
@@ -29,7 +29,7 @@ public class TestFile {
         fos.close();
     }
     //1024字节数组复制 耗时63毫秒
-    public  static void  fun1() throws IOException {
+    public static void fun1() throws IOException {
         FileInputStream fis = new FileInputStream("源文件");
         FileOutputStream fos = new FileOutputStream("新文件");
         int len = 0;
@@ -41,7 +41,7 @@ public class TestFile {
         fos.close();
     }
     // 一个字节一个字节复制，但是用了缓冲流 耗时64毫秒
-    public static   void  fun2() throws IOException {
+    public static void fun2() throws IOException {
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("源文件"));
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream("新文件"));
         int by = 0;
@@ -52,7 +52,7 @@ public class TestFile {
         bos.close();
     }
     // 1024字节数组复制并用了缓冲流 耗时7毫秒
-    public  static void  fun3() throws IOException {
+    public static void fun3() throws IOException {
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("源文件"));
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream("新文件"));
         int len = 0;

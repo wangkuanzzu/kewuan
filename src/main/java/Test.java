@@ -12,15 +12,40 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 
-public class TempTest {
+public class Test {
 
     public static int count = 0;
 
     public static void main(String[] args) {
 
+//        System.out.println(Math.abs(13 % 1));
+//        System.out.println(Math.abs(13 % 2));
+//        System.out.println(Math.abs(13 % 3));
+//        System.out.println(Math.abs(13 % 4));
+//        System.out.println(Math.abs(13 % 5));
 
-        String app = "1,2,3,4";
-        System.out.println(app.split(",").length);
+//        System.out.println(Math.abs(1 & 6));
+//        System.out.println(Math.abs(2 & 6));
+//        System.out.println(Math.abs(3 & 6));
+
+
+
+//        Integer i = 1;
+//        switch (i){
+//            case 1:
+//                System.out.println(i);
+//                break;
+//            case 2:
+//                System.out.println(i);
+//                break;
+//            default:
+//                System.out.println("------");
+//
+//        }
+
+
+//        String app = "1,2,3,4";
+//        System.out.println(app.split(",").length);
 
 //        String s = "wink";
 //        String s2 = String.format("%s/",s);
