@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,16 @@ public class Test {
     public static int count = 0;
 
     public static void main(String[] args) {
+
+        System.out.println(Byte.parseByte(null));
+
+
+//        Object a = 1;
+//        Object b = a.toString();
+//        System.out.println(a instanceof Number);
+//        System.out.println(b instanceof Number);
+//
+//        System.out.println(new BigDecimal(String.valueOf(0)));
 
 //        System.out.println(Math.abs(13 % 1));
 //        System.out.println(Math.abs(13 % 2));
