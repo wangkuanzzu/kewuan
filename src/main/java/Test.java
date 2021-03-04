@@ -1,4 +1,5 @@
 import io.nats.client.*;
+import manhua.YiRenZhiXia;
 import org.joda.time.DateTime;
 import utils.DateUtil;
 
@@ -19,8 +20,41 @@ public class Test {
 
     public static void main(String[] args) {
 
-        System.out.println(Byte.parseByte(null));
+            System.out.println("-------------------");
 
+            YiRenZhiXia xia = new YiRenZhiXia("冯宝宝");
+
+            YiRenZhiXia zhiXia = new YiRenZhiXia("张楚岚");
+
+//        String a = "abcdc";
+//        System.out.println(longestPalindrome(a));
+
+//        List<Student> students = new ArrayList<>();
+//        students.add(new Student("张三", "男"));
+//        students.add(new Student("李四", "男"));
+//        students.add(new Student("小红", "女"));
+//        students.add(new Student("小花", "女"));
+//        students.add(new Student("小红", "女"));
+
+        //统计男生个数
+        //stream 流遍历
+//        long count = students.stream()
+//                .filter(Student::isBoy) // 等同于.filter(student -> student.isBoy())
+//                .count();
+//
+//        System.out.println("男生个数 = " + count);
+
+
+
+//        ArrayList<String> stringList  = new ArrayList<>();
+//        System.out.println(stringList.size());
+//        stringList.add("a");
+//        System.out.println(stringList.toString());
+//
+//        LinkedList<String> stringList1 = new LinkedList<>();
+//        stringList1.add("b");
+//        stringList1.add("c");
+//        System.out.println(stringList1.toString());
 
 //        Object a = 1;
 //        Object b = a.toString();
@@ -174,6 +208,25 @@ public class Test {
 
 
     }
+
+    static class Student{
+        private String name;
+        private String sex;
+
+        public Student(String name, String sex){
+            this.name = name;
+            this.sex = sex;
+        }
+
+        public Boolean isBoy(){
+            return "男".equals(this.sex);
+        }
+        public String hasName(){
+            return this.name;
+        }
+    }
+
+
 
     public static void incr(){
         count++;
