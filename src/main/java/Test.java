@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
@@ -20,11 +23,21 @@ public class Test {
 
     public static void main(String[] args) {
 
-            System.out.println("-------------------");
+        // 获取 Java 线程管理 MXBean
+        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+        // 不需要获取同步的 monitor 和 synchronizer 信息，仅获取线程和线程堆栈信息
+        ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);
+        // 遍历线程信息，仅打印线程 ID 和线程名称信息
+        for (ThreadInfo threadInfo : threadInfos) {
+            System.out.println("[" + threadInfo.getThreadId() + "] " + threadInfo.getThreadName());
+        }
 
-            YiRenZhiXia xia = new YiRenZhiXia("冯宝宝");
 
-            YiRenZhiXia zhiXia = new YiRenZhiXia("张楚岚");
+//            System.out.println("-------------------");
+//
+//            YiRenZhiXia xia = new YiRenZhiXia("冯宝宝");
+//
+//            YiRenZhiXia zhiXia = new YiRenZhiXia("张楚岚");
 
 //        String a = "abcdc";
 //        System.out.println(longestPalindrome(a));
