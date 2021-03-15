@@ -1,4 +1,4 @@
-package leecode;
+package leetcode;
 
 /**
  * description: LeetCode8 <br>
