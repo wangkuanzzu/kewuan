@@ -1,4 +1,4 @@
-package proxy;
+package jdk8.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -12,7 +12,7 @@ import java.lang.reflect.Proxy;
  */
 public class ExampleProxy {
 
-    static interface Car{
+    interface Car{
         void running();
     }
 

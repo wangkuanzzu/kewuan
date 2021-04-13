@@ -23,16 +23,22 @@ public class Test {
 
     public static void main(String[] args) {
 
+        double a = Double.parseDouble("1.00");
+        double b = Double.parseDouble("0.00");
+        System.out.println(Double.compare(a,b));
+        System.out.println(Double.compare(b,a));
+        System.out.println(Double.compare(a-b,a));
 
 
-        // 获取 Java 线程管理 MXBean
-        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
-        // 不需要获取同步的 monitor 和 synchronizer 信息，仅获取线程和线程堆栈信息
-        ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);
-        // 遍历线程信息，仅打印线程 ID 和线程名称信息
-        for (ThreadInfo threadInfo : threadInfos) {
-            System.out.println("[" + threadInfo.getThreadId() + "] " + threadInfo.getThreadName());
-        }
+
+//        // 获取 Java 线程管理 MXBean
+//        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+//        // 不需要获取同步的 monitor 和 synchronizer 信息，仅获取线程和线程堆栈信息
+//        ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);
+//        // 遍历线程信息，仅打印线程 ID 和线程名称信息
+//        for (ThreadInfo threadInfo : threadInfos) {
+//            System.out.println("[" + threadInfo.getThreadId() + "] " + threadInfo.getThreadName());
+//        }
 
 
 //            System.out.println("-------------------");
