@@ -1,34 +1,23 @@
-import io.nats.client.*;
-import manhua.YiRenZhiXia;
-import org.joda.time.DateTime;
-import utils.DateUtil;
+import com.wink.starter.service.DemoService;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadInfo;
-import java.lang.management.ThreadMXBean;
-import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.util.*;
+import javax.annotation.Resource;
 
 public class Test {
 
-    public static int count = 0;
-
     public static void main(String[] args) {
 
-        double a = Double.parseDouble("1.00");
-        double b = Double.parseDouble("0.00");
-        System.out.println(Double.compare(a,b));
-        System.out.println(Double.compare(b,a));
-        System.out.println(Double.compare(a-b,a));
 
+            int a=3;
+            int b=3;
+            System.out.println(a-- > 3);
+            System.out.println(--b > 3);
+
+
+//        double a = Double.parseDouble("1.00");
+//        double b = Double.parseDouble("0.00");
+//        System.out.println(Double.compare(a,b));
+//        System.out.println(Double.compare(b,a));
+//        System.out.println(Double.compare(a-b,a));
 
 
 //        // 获取 Java 线程管理 MXBean
@@ -230,97 +219,4 @@ public class Test {
 
     }
 
-    static class Student{
-        private String name;
-        private String sex;
-
-        public Student(String name, String sex){
-            this.name = name;
-            this.sex = sex;
-        }
-
-        public Boolean isBoy(){
-            return "男".equals(this.sex);
-        }
-        public String hasName(){
-            return this.name;
-        }
-    }
-
-
-
-    public static void incr(){
-        count++;
-    }
-
-    public static boolean isNumber(String str){
-        String reg = "^[1-9][0-9]{0,}$";
-        return str.matches(reg);
-    }
-
-
-    public void readLog(){
-        String fileName = "/Users/kuan/temp/data/result51.log";
-        File file = new File(fileName);
-        BufferedReader reader = null;
-        try {
-            System.out.println("以行为单位读取文件内容，一次读一整行：");
-            reader = new BufferedReader(new FileReader(file));
-            String tempString = null;
-            int line = 1;
-            // 一次读入一行，直到读入null为文件结束
-            while ((tempString = reader.readLine()) != null) {
-                // 显示行号
-//                System.out.println("line " + line + ": " + tempString);
-                System.out.println(tempString.substring(tempString.indexOf("REQUEST_URL: ")+13,tempString.indexOf(", client:")));
-
-                line++;
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e1) {
-                }
-            }
-        }
-    }
-
-    /**
-     * 计算短信长度,加上短信签名， 大于70按照67个字符每条发送
-     *
-     * @param smsContent
-     * @return
-     */
-    public static int calcSmsNum(String smsContent, String sign) {
-        smsContent = new StringBuilder(smsContent).append("【").append(sign).append("】").toString();
-        int len = smsContent.length();
-        if (len <= 70) return 1;
-        int tmp = len % 67;
-        if (tmp == 0) return len / 67;
-        return len / 67 + 1;
-    }
-
-    /**
-     * 重新设定短信内容, 去掉原有设定签名
-     *
-     * @param content
-     * @return
-     */
-    public static String rewriteContent(String content) {
-        String tmp = content;
-        int p1 = tmp.indexOf("【");
-        int p2 = tmp.indexOf("】");
-
-        if (p1 != -1 && p2 != -1) {
-            String s1 = tmp.substring(0, p1);
-            String s2 = tmp.substring(p2 + 1);
-            tmp = new StringBuilder(s1).append(s2).toString();
-        }
-        return new StringBuilder(tmp).toString();
-
-    }
 }
