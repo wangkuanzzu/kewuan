@@ -1,16 +1,85 @@
 import com.wink.starter.service.DemoService;
+import leetcode.LeetCode19;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
+
+//    static class Node{
+//        List<Integer> data;
+//        Node next;
+//
+//        public Node() {
+//        }
+//
+//        public Node(List<Integer> data, Node next) {
+//            this.data = data;
+//            this.next = next;
+//        }
+//
+//        public List<Integer> getData() {
+//            return data;
+//        }
+//
+//        public void setData(List<Integer> data) {
+//            this.data = data;
+//        }
+//
+//        public Node getNext() {
+//            return next;
+//        }
+//
+//        public void setNext(Node next) {
+//            this.next = next;
+//        }
+//    }
+
 
     public static void main(String[] args) {
 
 
-            int a=3;
-            int b=3;
-            System.out.println(a-- > 3);
-            System.out.println(--b > 3);
+//        Node head = new Node(new ArrayList<>(),null);
+//        Node listNode = head;
+//        for (int i = 0; i < 7; i++) {
+//            listNode.next = new Node(new ArrayList<>(),null);
+//            listNode = listNode.next;
+//            if(i==6){
+//                listNode.next = head;
+//            }
+//        }
+//        for (int i = 0; i < 7; i++) {
+//            System.out.println(head.data);
+//            head = head.next;
+//        }
+//
+//        System.out.println("====================");
+//
+//        List<Integer> origin = new ArrayList<Integer>(){{
+//            for (int i = 0; i < 18; i++) {
+//                add(i);
+//            }
+//        }};
+//
+//        for (Integer integer : origin) {
+//            head.data.add(integer);
+//            head = head.next;
+//        }
+//
+//        for (int i = 0; i < 8; i++) {
+//            System.out.println(head.data);
+//            head = head.next;
+//        }
+
+
+
+
+//
+//            int a=3;
+//            int b=3;
+//            System.out.println(a-- > 3);
+//            System.out.println(--b > 3);
 
 
 //        double a = Double.parseDouble("1.00");
