@@ -1,5 +1,7 @@
-import com.wink.starter.service.DemoService;
 import leetcode.LeetCode19;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import spring.User;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -38,6 +40,20 @@ public class Test {
 
 
     public static void main(String[] args) {
+
+        //方式1
+//        AnnotationConfigApplicationContext applicationContext= new AnnotationConfigApplicationContext();
+//        applicationContext.register(User.class);
+
+        //xml配置文件
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+
+        applicationContext.refresh();
+
+        System.out.println(applicationContext.getBean("user0", User.class));
+        System.out.println(applicationContext.getBean("user0", User.class));
+        System.out.println(applicationContext.getBean("user1", User.class));
+        System.out.println(applicationContext.getBean("user1", User.class));
 
 
 //        Node head = new Node(new ArrayList<>(),null);
