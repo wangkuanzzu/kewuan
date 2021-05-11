@@ -1,6 +1,7 @@
 package leetcode;
 
 import jianzhioffer.Node;
+import leetcode.common.ListNode;
 
 import javax.jnlp.ClipboardService;
 
@@ -11,15 +12,6 @@ import javax.jnlp.ClipboardService;
  * version: 1.0 <br>
  */
 public class LeetCode19 {
-
-
-     static class ListNode {
-          int val;
-          ListNode next;
-          ListNode() {}
-          ListNode(int val) { this.val = val; }
-         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-     }
 
     public static void main(String[] args) {
          ListNode head = new ListNode(1);
