@@ -1,5 +1,9 @@
 import com.wink.starter.service.DemoService;
 import leetcode.LeetCode19;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import spring.MessageService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -7,38 +11,19 @@ import java.util.List;
 
 public class Test {
 
-//    static class Node{
-//        List<Integer> data;
-//        Node next;
-//
-//        public Node() {
-//        }
-//
-//        public Node(List<Integer> data, Node next) {
-//            this.data = data;
-//            this.next = next;
-//        }
-//
-//        public List<Integer> getData() {
-//            return data;
-//        }
-//
-//        public void setData(List<Integer> data) {
-//            this.data = data;
-//        }
-//
-//        public Node getNext() {
-//            return next;
-//        }
-//
-//        public void setNext(Node next) {
-//            this.next = next;
-//        }
-//    }
-
-
     public static void main(String[] args) {
 
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml");
+
+        System.out.println("context 启动成功");
+
+        MessageService messageService = (MessageService)context.getBean("messageService2");
+        System.out.println(messageService.getMessage());
+
+        // 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式
+        MessageService messageService2 = context.getBean(MessageService.class);
+        // 这句将输出: hello world
+        System.out.println(messageService2.getMessage());
 
 //        Node head = new Node(new ArrayList<>(),null);
 //        Node listNode = head;
