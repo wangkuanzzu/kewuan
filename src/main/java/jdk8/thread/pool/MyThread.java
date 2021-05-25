@@ -6,11 +6,11 @@ package jdk8.thread.pool;
  * author: kuan <br>
  * version: 1.0 <br>
  */
-public class MyRunnable implements Runnable {
+public class MyThread extends Thread {
 
     private String myCode;
 
-    public MyRunnable(String myCode) {
+    public MyThread(String myCode) {
         this.myCode = myCode;
     }
 
