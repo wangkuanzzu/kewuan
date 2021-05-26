@@ -1,4 +1,4 @@
-package order;
+package leetcode.order;
 
 
 import java.util.Arrays;

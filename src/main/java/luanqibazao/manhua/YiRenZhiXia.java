@@ -1,4 +1,4 @@
-package manhua;
+package luanqibazao.manhua;
 
 /**
  * description: YiRenZhiXia <br>

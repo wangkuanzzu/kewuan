@@ -1,6 +1,4 @@
-package function;
-
-import java.util.List;
+package leetcode.function;
 
 /**
  * Description:

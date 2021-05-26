@@ -1,4 +1,4 @@
-package future.food;
+package jdk8.future.food;
 
 public class BumThread extends Thread {
 

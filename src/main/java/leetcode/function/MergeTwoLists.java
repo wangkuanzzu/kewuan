@@ -1,4 +1,4 @@
-package function;
+package leetcode.function;
 
 /**
  * Description:合并两个有序的链表

@@ -1,4 +1,4 @@
-package function;
+package leetcode.function;
 
 /**
  * Description:找出两个有序数组的中位数

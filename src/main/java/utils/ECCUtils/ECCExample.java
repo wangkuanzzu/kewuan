@@ -1,4 +1,4 @@
-package ECCUtils;
+package utils.ECCUtils;
 
 import java.security.KeyPair;
 import java.security.PrivateKey;
@@ -9,14 +9,11 @@ import java.util.Base64;
 import java.util.List;
 
 
-import ECCUtils.JDK8EncryptECC;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.asymmetric.Sign;
 import cn.hutool.crypto.asymmetric.SignAlgorithm;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
-import ECCUtils.BCEncryptECC;
-import ECCUtils.JDK8SignECC;
 
 
 public class ECCExample {

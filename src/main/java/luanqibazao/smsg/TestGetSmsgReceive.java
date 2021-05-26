@@ -1,4 +1,4 @@
-package smsg;
+package luanqibazao.smsg;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

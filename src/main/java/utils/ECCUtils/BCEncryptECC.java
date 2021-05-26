@@ -1,4 +1,4 @@
-package ECCUtils;
+package utils.ECCUtils;
 
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;

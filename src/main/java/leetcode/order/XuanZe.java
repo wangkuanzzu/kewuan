@@ -1,6 +1,5 @@
-package order;
+package leetcode.order;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**

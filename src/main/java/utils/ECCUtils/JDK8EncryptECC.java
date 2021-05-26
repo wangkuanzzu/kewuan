@@ -1,4 +1,4 @@
-package ECCUtils;
+package utils.ECCUtils;
 
 import javax.crypto.Cipher;
 import java.security.*;
