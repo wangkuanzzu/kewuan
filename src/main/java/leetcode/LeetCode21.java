@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.common.ListNode;
+
 /**
  * description: LeetCode21 <br>
  * date: 2021/4/30 下午3:14 <br>
@@ -7,13 +9,6 @@ package leetcode;
  * version: 1.0 <br>
  */
 public class LeetCode21 {
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-    }
 
     public static void main(String[] args) {
 
