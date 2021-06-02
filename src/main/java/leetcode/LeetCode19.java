@@ -1,9 +1,6 @@
 package leetcode;
 
-import jianzhioffer.Node;
 import leetcode.common.ListNode;
-
-import javax.jnlp.ClipboardService;
 
 /**
  * description: LeetCode19 <br>
