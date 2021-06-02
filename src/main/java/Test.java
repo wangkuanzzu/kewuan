@@ -7,23 +7,28 @@ import spring.MessageService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Test {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml");
-
-        System.out.println("context 启动成功");
-
-        MessageService messageService = (MessageService)context.getBean("messageService2");
-        System.out.println(messageService.getMessage());
-
-        // 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式
-        MessageService messageService2 = context.getBean(MessageService.class);
-        // 这句将输出: hello world
-        System.out.println(messageService2.getMessage());
+        Map<String,Object> map = new HashMap<>();
+        String a = (String) map.get("a");
+        System.out.println("a = " + a);
+//        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml");
+//
+//        System.out.println("context 启动成功");
+//
+//        MessageService messageService = (MessageService)context.getBean("messageService2");
+//        System.out.println(messageService.getMessage());
+//
+//        // 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式
+//        MessageService messageService2 = context.getBean(MessageService.class);
+//        // 这句将输出: hello world
+//        System.out.println(messageService2.getMessage());
 
 //        Node head = new Node(new ArrayList<>(),null);
 //        Node listNode = head;
