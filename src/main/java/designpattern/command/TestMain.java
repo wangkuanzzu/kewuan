@@ -6,8 +6,6 @@ import designpattern.command.commands.BedRoomLightOffCommand;
 import designpattern.command.commands.BedRoomLightOnCommand;
 import designpattern.command.equipment.AirConditionHang;
 import designpattern.command.equipment.BedRoomLight;
-import designpattern.command.equipment.Light;
-import designpattern.command.equipment.LivingRoomLight;
 
 /**
  * description: TestMain <br>
