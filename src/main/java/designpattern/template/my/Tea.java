@@ -1,4 +1,4 @@
-package designpattern.template;
+package designpattern.template.my;
 
 /**
  * description: Tea <br>
