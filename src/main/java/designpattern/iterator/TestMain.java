@@ -17,8 +17,7 @@ public class TestMain {
 
         BreakFirstMenu breakFirstMenu = new BreakFirstMenu();
         LunchMenu lunchMenu = new LunchMenu();
-        DinnerMenu dinnerMenu = new DinnerMenu();
-        Waiter waiter = new Waiter(breakFirstMenu,lunchMenu,dinnerMenu);
+        Waiter waiter = new Waiter(breakFirstMenu,lunchMenu);
         waiter.printMenu();
     }
 }

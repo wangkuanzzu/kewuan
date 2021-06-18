@@ -1,12 +1,14 @@
 package designpattern.iterator;
 
+import java.util.Iterator;
+
 /**
  * description: BreakFirstIterator <br>
  * date: 2021/6/9 下午5:06 <br>
  * author: kuan <br>
  * version: 1.0 <br>
  */
-public class BreakFirstIterator implements MyIterator {
+public class BreakFirstIterator implements Iterator {
 
     MenuItem[] menuItems;
     int position = 0;

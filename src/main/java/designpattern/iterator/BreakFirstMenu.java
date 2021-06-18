@@ -1,5 +1,6 @@
 package designpattern.iterator;
 
+import java.util.Iterator;
 import java.util.OptionalInt;
 
 /**
@@ -35,7 +36,7 @@ public class BreakFirstMenu implements Menu{
     }
 
     @Override
-    public MyIterator createIterator() {
+    public Iterator createIterator() {
         return new BreakFirstIterator(menuItems);
     }
 

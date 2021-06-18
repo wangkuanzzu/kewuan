@@ -1,7 +1,6 @@
 package designpattern.iterator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * description: Waiter <br>
@@ -10,57 +9,30 @@ import java.util.HashMap;
  * version: 1.0 <br>
  */
 public class Waiter {
-    BreakFirstMenu breakFirstMenu;
-    LunchMenu lunchMenu;
-    DinnerMenu dinnerMenu;
+    Menu breakFirstMenu;
+    Menu lunchMenu;
 
     public Waiter() {
     }
 
-    public Waiter(BreakFirstMenu breakFirstMenu, LunchMenu lunchMenu, DinnerMenu dinnerMenu) {
+    public Waiter(Menu breakFirstMenu, Menu lunchMenu) {
         this.breakFirstMenu = breakFirstMenu;
         this.lunchMenu = lunchMenu;
-        this.dinnerMenu = dinnerMenu;
     }
 
     public void printMenu() {
-        MenuItem[] menuItems = breakFirstMenu.getMenuItems();
-        ArrayList<MenuItem> menuItems1 = lunchMenu.getMenuItems();
-        HashMap<String, MenuItem> menuItems2 = dinnerMenu.getMenuItems();
-        for (int i = 0; i < breakFirstMenu.numberOfItems; i++) {
-            System.out.println(menuItems[i].toString());
+        Iterator iterator = breakFirstMenu.createIterator();
+        Iterator iterator1 = lunchMenu.createIterator();
+        System.out.println("早餐");
+        printMenu(iterator);
+        System.out.println("午餐");
+        printMenu(iterator1);
+    }
+
+    private void printMenu(Iterator iterator){
+        while (iterator.hasNext()) {
+            MenuItem menuItem = (MenuItem)iterator.next();
+            System.out.println(menuItem.getName() +" == "+menuItem.getPrice() + " == " +menuItem.getDescription());
         }
-        menuItems1.forEach(menuItem -> {
-            System.out.println(menuItem.toString());
-        });
-
-        menuItems2.forEach((s, menuItem) -> {
-            System.out.println(s);
-            System.out.println(menuItem.toString());
-        });
-    }
-
-    public BreakFirstMenu getBreakFirstMenu() {
-        return breakFirstMenu;
-    }
-
-    public void setBreakFirstMenu(BreakFirstMenu breakFirstMenu) {
-        this.breakFirstMenu = breakFirstMenu;
-    }
-
-    public LunchMenu getLunchMenu() {
-        return lunchMenu;
-    }
-
-    public void setLunchMenu(LunchMenu lunchMenu) {
-        this.lunchMenu = lunchMenu;
-    }
-
-    public DinnerMenu getDinnerMenu() {
-        return dinnerMenu;
-    }
-
-    public void setDinnerMenu(DinnerMenu dinnerMenu) {
-        this.dinnerMenu = dinnerMenu;
     }
 }

@@ -1,6 +1,7 @@
 package designpattern.iterator;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * description: LunchMenu <br>
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * author: kuan <br>
  * version: 1.0 <br>
  */
-public class LunchMenu {
+public class LunchMenu implements Menu{
     ArrayList<MenuItem> menuItems;
 
     public LunchMenu() {
@@ -32,5 +33,10 @@ public class LunchMenu {
 
     public void setMenuItems(ArrayList<MenuItem> menuItems) {
         this.menuItems = menuItems;
+    }
+
+    @Override
+    public Iterator createIterator() {
+        return menuItems.iterator();
     }
 }
