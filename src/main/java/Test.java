@@ -1,34 +1,37 @@
-import com.wink.starter.service.DemoService;
-import leetcode.LeetCode19;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import spring.User;
+import org.springframework.context.ApplicationContext;
 import spring.MessageService;
-
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class Test {
 
     public static void main(String[] args) {
 
-        Map<String,Object> map = new HashMap<>();
-        String a = (String) map.get("a");
-        System.out.println("a = " + a);
-//        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml");
-//
-//        System.out.println("context 启动成功");
-//
-//        MessageService messageService = (MessageService)context.getBean("messageService2");
-//        System.out.println(messageService.getMessage());
-//
-//        // 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式
-//        MessageService messageService2 = context.getBean(MessageService.class);
-//        // 这句将输出: hello world
-//        System.out.println(messageService2.getMessage());
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml");
+
+        System.out.println("context 启动成功");
+
+        MessageService messageService = (MessageService)context.getBean("messageService2");
+        System.out.println(messageService.getMessage());
+
+        // 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式
+        MessageService messageService2 = context.getBean(MessageService.class);
+        // 这句将输出: hello world
+        System.out.println(messageService2.getMessage());
+        //方式1
+//        AnnotationConfigApplicationContext applicationContext= new AnnotationConfigApplicationContext();
+//        applicationContext.register(User.class);
+
+        //xml配置文件
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+
+        applicationContext.refresh();
+
+        System.out.println(applicationContext.getBean("user0", User.class));
+        System.out.println(applicationContext.getBean("user0", User.class));
+        System.out.println(applicationContext.getBean("user1", User.class));
+        System.out.println(applicationContext.getBean("user1", User.class));
+
 
 //        Node head = new Node(new ArrayList<>(),null);
 //        Node listNode = head;
