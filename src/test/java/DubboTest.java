@@ -1,5 +1,5 @@
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
-import spi.dubbo.Robot;
+import com.wink.learn.spi.dubbo.Robot;
 import org.junit.Test;
 
 

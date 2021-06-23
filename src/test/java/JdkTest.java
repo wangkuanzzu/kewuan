@@ -1,6 +1,5 @@
-import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import com.wink.learn.spi.jdk.Robot;
 import org.junit.Test;
-import spi.jdk.Robot;
 
 import java.util.ServiceLoader;
 

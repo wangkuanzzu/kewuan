@@ -1,4 +1,4 @@
-import jdk8.thread.pool.MyThread;
+import com.wink.learn.jdk8.thread.pool.MyThread;
 import org.junit.Test;
 
 /**
