@@ -1,4 +1,4 @@
-package com.wink.learn.a;
+package com.wink.learn.utils;
 
 import java.sql.*;
 import java.util.ArrayList;

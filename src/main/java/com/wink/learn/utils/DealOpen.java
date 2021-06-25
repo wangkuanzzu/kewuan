@@ -1,4 +1,4 @@
-package com.wink.learn.a;
+package com.wink.learn.utils;
 
 import cn.hutool.core.io.file.FileReader;
 import com.alibaba.fastjson.JSON;
@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * description: com.wink.learn.a.DealClick <br>
+ * description: com.wink.learn.utils.DealClick <br>
  * date: 2020/9/28 10:43 上午 <br>
  * author: kuan <br>
  * version: 1.0 <br>

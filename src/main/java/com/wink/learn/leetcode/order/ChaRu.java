@@ -28,6 +28,7 @@ public class ChaRu {
                 last--;
             }
             ints[last+1] = temp;
+            System.out.println("ints = " + Arrays.toString(ints));
 
         }
         return Arrays.toString(ints);
