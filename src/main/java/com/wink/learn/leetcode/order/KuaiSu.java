@@ -22,6 +22,20 @@ public class KuaiSu {
     }
 
     /**
+     * 理解快速排序
+     * 首先快速排序是一个递归过程，递归函数参数为数组和首位下标
+     * 确定一个基准值，随机从数组中选择即可，下面实现默认数组第一个元素
+     * 该基准值用于将数组划分为两部分，规则为：左侧数组为小于该基准值，右侧为大于
+     * 递归左右两个数组，继续将数组划分为两部分，递归往复
+     * （左右两部分数组为无序的）
+     * 实现思路：
+     * 定义两个指针，分别指向数组的第一个和最后一个元素
+     * 左指针向右移动，右指针向左移动，直到两个指针重合
+     * 在还没有重合的过程中
+     *  找到左右两部分数组中不满足上诉规则的元素进行调换
+     * 等待重合时
+     *  将重合时指针对应的元素赋值给第一个元素
+     *  将基准值赋值给重合时候指针对应的元素
      *
      * @param ints
      * @param low 开始元素下标
@@ -48,9 +62,9 @@ public class KuaiSu {
             while(ints[i] <= base && i < j){
                 i++;
             }
-
+            System.out.println(i + "=" + ints[i] + "|" + j + "=" + ints[j] );
             if(i<j){
-                // 交换上面的两个元素位置
+                // 交换上面的两个位置的元素
                 x = ints[i];
                 y = ints[j];
 
@@ -59,11 +73,12 @@ public class KuaiSu {
             }
 
         }
-
+        System.out.println(i + "=" + ints[i]);
+        System.out.println(base);
         //结束以上循环时 i=j 交换基准值与下标为i的元素
         ints[low] = ints[i];
         ints[i] = base;
-
+        System.out.println("Arrays.toString(ints) = " + Arrays.toString(ints));
         //递归调用左侧
         kuaisu(ints,low,j-1);
         //递归调用右侧
