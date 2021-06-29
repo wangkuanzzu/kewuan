@@ -4,10 +4,25 @@ import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.lang.TypeReference;
+import cn.hutool.core.util.CharsetUtil;
+import cn.hutool.http.HttpRequest;
+import cn.hutool.http.HttpResponse;
+import cn.hutool.http.HttpUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.HttpCookie;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -18,7 +33,70 @@ import java.util.List;
  */
 public class ConvertDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        String fileName = "/Users/kuan/temp/yangchihang-test.txt";
+        FileReader fileReader = new FileReader(fileName);
+        if(fileReader == null){
+            return;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        String url = null;
+        FileWriter writer = new FileWriter("yangchihang-result.txt");
+        for (String s:fileReader.readLines()) {
+            String cName = s.substring(3).trim();
+            String searchUrl = "https://www.qcc.com/web/search?key="+cName;
+            HttpRequest get = HttpUtil.createGet(searchUrl);
+            HttpResponse result2 = get.cookie(new HttpCookie("acw_tc","3ad7921e16249443825748236e4a1fbfaa29509c9f5597a5d848cd1fb8"))
+                    .cookie(new HttpCookie("QCCSESSID","6a6c2f6776b41bcb6982321f24")).execute();
+            String html= result2.body();
+
+            Document doc = Jsoup.parse(html);
+            Elements maininfo = doc.getElementsByClass("maininfo");
+            if (maininfo.get(0).child(0) != null) {
+                url = maininfo.get(0).child(0).attr("href");
+                if(url.contains("firm")){
+                    url = url.replace("firm","cbase");
+                }
+            }
+            if (url != null) {
+                String detailResult = HttpUtil.get(url);
+                Document detailHtml = Jsoup.parse(detailResult);
+                try{
+                    Elements val = detailHtml.getElementsByClass("contact-info").get(0).child(1).getElementsByClass("val");
+                    String guanwang = val.get(1).text();
+                    String ziben = detailHtml.getElementsByClass("ntable").get(0).child(0).child(2).child(1).text();
+                    String dizhi = detailHtml.getElementsByClass("ntable").get(0).child(0).child(8).child(1).child(0).text();
+
+                    stringBuilder.append(cName).append("--").append(url)
+                            .append("   ").append(guanwang)
+                            .append("    ").append(ziben)
+                            .append("    ").append(dizhi);
+                    writer.write(stringBuilder.toString());
+                }catch (Exception e){
+                    writer.write(cName + "----no data");
+                }
+            }else{
+                writer.write(cName + "----no data");
+            }
+            writer.write("\n");
+        }
+        writer.close();
+
+
+
+
+
+//
+//        System.out.println(ntable.get(1).child(0).child(3).child(0).text() + "  " + ntable.get(1).child(0).child(3).child(1).text());
+//        System.out.println(ntable.get(6).child(0).child(0).child(4).text() + "  " + ntable.get(6).child(0).child(0).child(5).text());
+//        System.out.println(ntable.get(6).child(0).child(3).child(0).text() + "  " + ntable.get(6).child(0).child(3).child(1).text());
+
+
+//        for (Element element : ntable) {
+//            System.out.println(element);
+//        }
+
 
 
 
