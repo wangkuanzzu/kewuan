@@ -33,17 +33,18 @@ import java.util.List;
  */
 public class ConvertDemo {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
+
+        int i = 0;
 
         String fileName = "/Users/kuan/temp/yangchihang-test.txt";
         FileReader fileReader = new FileReader(fileName);
-        if(fileReader == null){
-            return;
-        }
         StringBuilder stringBuilder = new StringBuilder();
         String url = null;
         FileWriter writer = new FileWriter("yangchihang-result.txt");
         for (String s:fileReader.readLines()) {
+            i++;
+            Thread.sleep(1000*60);
             String cName = s.substring(3).trim();
             String searchUrl = "https://www.qcc.com/web/search?key="+cName;
             HttpRequest get = HttpUtil.createGet(searchUrl);
@@ -80,14 +81,14 @@ public class ConvertDemo {
                 writer.write(cName + "----no data");
             }
             writer.write("\n");
+
+            if(i==500){
+                break;
+            }
+
         }
         writer.close();
 
-
-
-
-
-//
 //        System.out.println(ntable.get(1).child(0).child(3).child(0).text() + "  " + ntable.get(1).child(0).child(3).child(1).text());
 //        System.out.println(ntable.get(6).child(0).child(0).child(4).text() + "  " + ntable.get(6).child(0).child(0).child(5).text());
 //        System.out.println(ntable.get(6).child(0).child(3).child(0).text() + "  " + ntable.get(6).child(0).child(3).child(1).text());
