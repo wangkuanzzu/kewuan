@@ -35,16 +35,19 @@ public class ConvertDemo {
 
     public static void main(String[] args) throws Exception {
 
-        int i = 0;
-
-        String fileName = "/Users/kuan/temp/yangchihang-test.txt";
+        String fileName = "/Users/kuan/temp/yangchihang/all.txt";
         FileReader fileReader = new FileReader(fileName);
-        StringBuilder stringBuilder = new StringBuilder();
         String url = null;
-        FileWriter writer = new FileWriter("yangchihang-result.txt");
+        String zanwu = "暂无";
+        String fou = "否";
+        String erjigongsi = "二级公司";
+        String biggudong="中国宝武钢铁集团有限公司";
+        FileWriter writer = new FileWriter("/Users/kuan/temp/yangchihang/all-result.txt");
+        writer.write("公司名称  企查查地址   官网  注册资本    注册地址    第一股东    第二股东    二级公司\n");
+        int i = 0;
         for (String s:fileReader.readLines()) {
-            i++;
-            Thread.sleep(1000*60);
+            StringBuilder stringBuilder = new StringBuilder();
+
             String cName = s.substring(3).trim();
             String searchUrl = "https://www.qcc.com/web/search?key="+cName;
             HttpRequest get = HttpUtil.createGet(searchUrl);
@@ -69,36 +72,43 @@ public class ConvertDemo {
                     String ziben = detailHtml.getElementsByClass("ntable").get(0).child(0).child(2).child(1).text();
                     String dizhi = detailHtml.getElementsByClass("ntable").get(0).child(0).child(8).child(1).child(0).text();
 
-                    stringBuilder.append(cName).append("--").append(url)
+                    Element partner = detailHtml.getElementById("partner").getElementsByClass("tablist").get(0).getElementsByClass("app-ntable").get(0).getElementsByClass("ntable").get(0);
+//                    System.out.println(partner);
+                    Element child1 = partner.child(0).child(1);
+                    String diyigudong = child1.getElementsByClass("name").get(0).child(0).text();
+                    String diergudong = zanwu;
+                    if (partner.child(0).children().size() > 2) {
+                        Element child2 = partner.child(0).child(2);
+                        diergudong = child2.getElementsByClass("name").get(0).child(0).text();
+                    }
+                    String shifou = fou;
+                    if (diyigudong.equals(biggudong)) {
+                        shifou = erjigongsi;
+                    }
+
+                    stringBuilder.append(cName).append("   ").append(url)
                             .append("   ").append(guanwang)
                             .append("    ").append(ziben)
-                            .append("    ").append(dizhi);
+                            .append("    ").append(dizhi)
+                            .append("    ").append(diyigudong)
+                            .append("    ").append(diergudong)
+                            .append("    ").append(shifou);
                     writer.write(stringBuilder.toString());
                 }catch (Exception e){
+                    e.printStackTrace();
                     writer.write(cName + "----no data");
                 }
             }else{
                 writer.write(cName + "----no data");
             }
             writer.write("\n");
-
-            if(i==500){
-                break;
+            i++;
+            System.out.println("==已完成==" + i);
+            if(i % 5 == 0){
+                Thread.sleep(1000*60);
             }
-
         }
         writer.close();
-
-//        System.out.println(ntable.get(1).child(0).child(3).child(0).text() + "  " + ntable.get(1).child(0).child(3).child(1).text());
-//        System.out.println(ntable.get(6).child(0).child(0).child(4).text() + "  " + ntable.get(6).child(0).child(0).child(5).text());
-//        System.out.println(ntable.get(6).child(0).child(3).child(0).text() + "  " + ntable.get(6).child(0).child(3).child(1).text());
-
-
-//        for (Element element : ntable) {
-//            System.out.println(element);
-//        }
-
-
 
 
 //        System.out.println(DateUtil.now());
