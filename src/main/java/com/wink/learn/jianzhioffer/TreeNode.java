@@ -6,7 +6,7 @@ package com.wink.learn.jianzhioffer;
  * author: kuan <br>
  * version: 1.0 <br>
  */
-public class TreeNode {
+public class TreeNode{
 
     public int key; //序号
     public String value; //值

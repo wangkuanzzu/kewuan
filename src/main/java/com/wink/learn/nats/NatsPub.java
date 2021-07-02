@@ -10,9 +10,8 @@ import java.util.Scanner;
 import java.util.concurrent.*;
 
 public class NatsPub {
-    public static final String subject = "bigdata-adpstion-cnt";
+    public static final String subject = "car-lisence-sub";
     public static final String servers = "nats://172.17.15.62:4222";
-//    public static final String servers = "nats://172.17.15.52:4222";
 
     public static void main(String[] args) throws Exception {
         publish0();

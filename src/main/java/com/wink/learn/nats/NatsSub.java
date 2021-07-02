@@ -7,23 +7,23 @@ import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 
 public class NatsSub {
-    public static final String subject = "test-kuan";
+    public static final String subject = "car-lisence-sub";
 //    public static final String queue = "click";
-    public static final String servers = "nats://127.0.0.1:4222";
+    public static final String servers = "nats://172.17.15.62:4222";
 
     public static void main(String[] args) throws Exception {
 //        subscribe2Queue1();
 //        subscribe2Queue2();
 
-//        subscribe1();
+        subscribe1();
 
-        CountDownLatch countDownLatch = new CountDownLatch(3);
-        for (int i = 0; i < 3; i++) {
-            Thread thread = new Thread(new MyThread(countDownLatch));
-            thread.setName("线程-" + (i + 1));
-            thread.start();
-            countDownLatch.countDown();
-        }
+//        CountDownLatch countDownLatch = new CountDownLatch(3);
+//        for (int i = 0; i < 3; i++) {
+//            Thread thread = new Thread(new MyThread(countDownLatch));
+//            thread.setName("线程-" + (i + 1));
+//            thread.start();
+//            countDownLatch.countDown();
+//        }
 
     }
     static class MyThread implements Runnable{

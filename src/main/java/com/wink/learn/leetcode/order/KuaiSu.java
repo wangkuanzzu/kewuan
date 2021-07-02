@@ -62,7 +62,6 @@ public class KuaiSu {
             while(ints[i] <= base && i < j){
                 i++;
             }
-            System.out.println(i + "=" + ints[i] + "|" + j + "=" + ints[j] );
             if(i<j){
                 // 交换上面的两个位置的元素
                 x = ints[i];
@@ -73,12 +72,9 @@ public class KuaiSu {
             }
 
         }
-        System.out.println(i + "=" + ints[i]);
-        System.out.println(base);
         //结束以上循环时 i=j 交换基准值与下标为i的元素
         ints[low] = ints[i];
         ints[i] = base;
-        System.out.println("Arrays.toString(ints) = " + Arrays.toString(ints));
         //递归调用左侧
         kuaisu(ints,low,j-1);
         //递归调用右侧
