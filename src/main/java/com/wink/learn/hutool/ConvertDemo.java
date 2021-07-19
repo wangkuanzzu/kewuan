@@ -1,17 +1,29 @@
 package com.wink.learn.hutool;
 
+import cn.hutool.core.convert.Convert;
+import cn.hutool.core.date.DatePattern;
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.file.FileReader;
+import cn.hutool.core.lang.Assert;
+import cn.hutool.core.lang.TypeReference;
 import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.HttpCookie;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * description: ConvertDemo <br>
@@ -23,16 +35,16 @@ public class ConvertDemo {
 
     public static void main(String[] args) throws Exception {
 
-        String fileName = "/Users/kuan/temp/yangchihang/yangchihang.txt";
-        FileReader fileReader = new FileReader(fileName, CharsetUtil.UTF_8);
+        String fileName = "E:\\temp\\company.txt";
+        FileReader fileReader = new FileReader(fileName);
         String url = null;
         String zanwu = "暂无";
         String fou = "否";
         String erjigongsi = "二级公司";
         String biggudong="中国宝武钢铁集团有限公司";
-        FileWriter writer = new FileWriter("/Users/kuan/temp/yangchihang/yangchihang-result.txt");
+        FileWriter writer = new FileWriter("E:\\temp\\company-result.txt");
         writer.write("公司名称  企查查地址   官网  注册资本    注册地址    第一股东    第二股东    二级公司\n");
-        int i = 305;
+        int i = 0;
         for (String s:fileReader.readLines()) {
             StringBuilder stringBuilder = new StringBuilder();
             String cName = s.substring(3).trim();
@@ -80,18 +92,21 @@ public class ConvertDemo {
                             .append("    ").append(diyigudong)
                             .append("    ").append(diergudong)
                             .append("    ").append(shifou);
-                    writer.write(stringBuilder.toString());
+                    System.out.println(stringBuilder.toString());
+//                    writer.write(stringBuilder.toString());
                 }catch (Exception e){
                     e.printStackTrace();
-                    writer.write(cName + "----no data");
+                    System.out.println(cName + "----no data");
+//                    writer.write(cName + "----no data");
                 }
             }else{
-                writer.write(cName + "----no data");
+                System.out.println(cName + "----no data");
+//                writer.write(cName + "----no data");
             }
-            writer.write("\n");
+//            writer.write("\n");
             i++;
             System.out.println("==已完成==" + i);
-                Thread.sleep(1000*60);
+//            Thread.sleep(1000*60);
         }
         writer.close();
 
