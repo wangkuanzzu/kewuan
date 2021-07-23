@@ -1,4 +1,4 @@
-package com.wink.learn.a;
+package com.wink.learn.hello;
 
 
 import org.apache.poi.ss.usermodel.CellType;
@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.*;
 import java.util.*;
 
-public class ExcelData {
+public class GengJie {
 
     public static void main(String[] args) {
         try {

@@ -1,29 +1,16 @@
-package com.wink.learn.hutool;
+package com.wink.learn.hello;
 
-import cn.hutool.core.convert.Convert;
-import cn.hutool.core.date.DatePattern;
-import cn.hutool.core.date.DateTime;
-import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.file.FileReader;
-import cn.hutool.core.lang.Assert;
-import cn.hutool.core.lang.TypeReference;
-import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Type;
 import java.net.HttpCookie;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * description: ConvertDemo <br>
@@ -31,7 +18,7 @@ import java.util.List;
  * author: kuan <br>
  * version: 1.0 <br>
  */
-public class ConvertDemo {
+public class QCC {
 
     public static void main(String[] args) throws Exception {
 

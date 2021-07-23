@@ -41,12 +41,7 @@ public class GongTongParent2 {
             return root;
         }
         TreeNode left = parents(root.left, p, q);
-        System.out.println(i + "==left==="+ (left == null ? null :left.value));
-
         TreeNode right = parents(root.right, p, q);
-        System.out.println(i + "==right==="+(right == null ? null : right.value));
-
-        i = i+1;
         if (left != null && right != null) {
             return root;
         }

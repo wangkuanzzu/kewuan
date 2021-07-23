@@ -1,14 +1,77 @@
-package com.wink.learn.a;
+package com.wink.learn.hello;
 
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import cn.hutool.core.text.UnicodeUtil;
 
 public class Test {
 
+    static class Student {
+        private String type;
+        private String name;
+        private int age;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        Student(String type, String name, int age) {
+            this.age = age;
+            this.type = type;
+            this.name = name;
+        }
+
+        @Override
+        public int hashCode() {
+            return (name+type).hashCode();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            Student student = (Student) obj;
+            return name.equals(student.getName()) && type.equals(student.getType());
+        }
+    }
     public static void main(String[] args) {
 
+        String string = UnicodeUtil.toString("\\u767E\\u8054\\u4EA4\\u6613\\u7ED3\\u679C\\u56DE\\u8C03\\u5730\\u5740");
+        String string2 = UnicodeUtil.toString("\\u767E\\u8054\\u652F\\u4ED8\\u4EA4\\u6613\\u7ED3\\u679C\\u56DE\\u8C03\\u5730\\u5740");
+        String string3 = UnicodeUtil.toString("\\u767E\\u8054\\u63D0\\u73B0\\u4EA4\\u6613\\u4EA4\\u6613\\u56DE\\u8C03\\u5730\\u5740");
+        System.out.println(string);
+        System.out.println(string2);
+        System.out.println(string3);
 
+//        Student student1=new Student("1","tom",20);
+//        Student student2=new Student("1","tom",20);
+//        Map<Student,Integer> map=new HashMap<>();
+//        map.put(student1,100);
+//        System.out.println(student1.hashCode()+"：："+student2.hashCode());
+//        System.out.println(map.get(student1)+"::"+map.get(student2));
 //        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:application.xml");
 //
 //        System.out.println("context 启动成功");

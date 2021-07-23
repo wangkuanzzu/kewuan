@@ -1,4 +1,4 @@
-package com.wink.learn.a;
+package com.wink.learn.hello;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
