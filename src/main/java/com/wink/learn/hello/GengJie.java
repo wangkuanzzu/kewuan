@@ -14,7 +14,7 @@ public class GengJie {
 
     public static void main(String[] args) {
         try {
-
+            //a
             FileWriter writer = new FileWriter("C:\\Users\\wangk\\Desktop\\ans-all.txt");
 
             File files = new File("C:\\Users\\wangk\\Desktop\\数据");
