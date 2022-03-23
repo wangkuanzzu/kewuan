@@ -16,6 +16,7 @@ public class GengJie {
         try {
             //a
             //b
+            //c
             FileWriter writer = new FileWriter("C:\\Users\\wangk\\Desktop\\ans-all.txt");
 
             File files = new File("C:\\Users\\wangk\\Desktop\\数据");
